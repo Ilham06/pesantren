@@ -13,7 +13,7 @@ class UpdateActivityRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateActivityRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'description' => 'nullable',
+            'images' => 'nullable',
+            'images.*' => 'nullable|image|max:1024|mimes:png,jpg,jpeg'
         ];
     }
 }
