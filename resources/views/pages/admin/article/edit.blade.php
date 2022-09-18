@@ -7,13 +7,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Tambah {{ $module }}</h1>
+                        <h1 class="m-0">Edit {{ $module }}</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">{{ $module }}</a></li>
-                            <li class="breadcrumb-item active">Tambah {{ $module }}</li>
+                            <li class="breadcrumb-item active">Edit {{ $module }}</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -26,33 +26,37 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route($module.'.store') }}" enctype="multipart/form-data" method="post">
+                        <form action="{{ route($module.'.update', $model->id) }}" enctype="multipart/form-data" method="post">
+                            @method('put')
                             @csrf
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" id="nama" placeholder="nama kegiatan">
-                                @error('name')
+                                <label for="title" class="form-label">Judul</label>
+                                <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                    name="title" id="title" placeholder="judul artikel" value="{{ old('title', $model->title) }}">
+                                @error('title')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="images" class="form-label">Foto</label>
-                                <input class="form-control " type="file" name="images[]" id="images" multiple>
-                                @error('images')
-                                    <small class="text-danger d-block">{{ $message }}</small>
-                                @enderror
-                                @error('images.*')
-                                    <small class="text-danger d-block">{{ $message }}</small>
+                                <label for="thumbnail" class="form-label">Thumbnail</label>
+                                <input class="form-control @error('thumbnail') is-invalid @enderror" type="file" name="thumbnail" id="thumbnail">
+                                <small class="text-danger">*pilih ulang untuk mengubah gambar, biarkan jika tidak</small>
+                                @error('thumbnail')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="summernote" class="form-label">Deskripsi</label>
-                                <textarea name="description" id="summernote">
-
+                                <label for="summernote" class="form-label">Kontent</label>
+                                <textarea name="content" id="summernote">
+                                    {{ old('content', $model->content) }}
                                 </textarea>
+                                @error('content')
+                                    <small class="text-danger d-block">{{ $message }}</small>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </form>

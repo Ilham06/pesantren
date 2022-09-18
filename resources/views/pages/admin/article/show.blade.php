@@ -28,28 +28,24 @@
                     <div class="card-body p-0">
                         <table class="table">
                             <tr>
-                                <th>Nama Kegiatan</th>
-                                <td>{{ $model->name }}</td>
+                                <th>Judul</th>
+                                <td>{{ $model->title }}</td>
                             </tr>
                             <tr>
-                                <th>Deskripsi</th>
-                                <td>{!! $model->description !!}</td>
+                                <th>Kontent</th>
+                                <td>{!! $model->content !!}</td>
                             </tr>
                             <tr>
-                                <th>Foto Kegiatan</th>
+                                <th>Thumbnail</th>
                                 <td></td>
                             </tr>
                         </table>
                     </div>
                     <div class="images p-5">
                         <div class="row">
-                            @forelse ($model->images as $image)
-                                <div class="col-lg-3">
-                                    <img style="width: 100%" src="{{ asset('storage/image/activity/'.$image->url) }}" alt="">
-                                </div>
-                            @empty
-                                <p>Tidak ada foto</p>
-                            @endforelse
+                            <div class="col-lg-5">
+                                <img style="width: 100%" src="{{ asset('storage/image/'.$module.'/'.$model->thumbnail) }}" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>

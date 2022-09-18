@@ -7,13 +7,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Edit Activity</h1>
+                        <h1 class="m-0">Edit {{ $module }}</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Activity</a></li>
-                            <li class="breadcrumb-item active">Edit Data</li>
+                            <li class="breadcrumb-item"><a href="#">{{ $module }}</a></li>
+                            <li class="breadcrumb-item active">Edit {{ $module }}</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -26,7 +26,7 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('activity.update', $model->id) }}" enctype="multipart/form-data" method="post">
+                        <form action="{{ route($module.'.update', $model->id) }}" enctype="multipart/form-data" method="post">
                             @method('put')
                             @csrf
                             <div class="mb-3">

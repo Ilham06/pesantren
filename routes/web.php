@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\ArticleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,7 @@ Route::get('/', function () {
 
 Route::resource('detail', DetailController::class);
 Route::resource('activity', ActivityController::class);
+Route::resource('article', ArticleController::class);
 
 Auth::routes();
 

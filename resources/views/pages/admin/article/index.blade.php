@@ -43,9 +43,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nama</th>
-                                        <th>Deskripsi</th>
-                                        <th>Action</th>
+                                        <th width="15%">Thumbnail</th>
+                                        <th>judul</th>
+                                        <th>content</th>
+                                        <th width="20%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,7 +69,7 @@
             var table = $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('activity.index') }}",
+                ajax: "{{ route('article.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -76,8 +77,12 @@
                         searchable: false
                     },
                     {
-                        data: 'name',
-                        name: 'name'
+                        data:'thumbnail',
+                        name:'thumbnail'
+                    },
+                    {
+                        data: 'title',
+                        name: 'title'
                     },
                     {
                         data: 'excerp',
