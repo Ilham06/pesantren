@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Activity extends Model
 {
@@ -18,6 +19,11 @@ class Activity extends Model
      */
     public function images()
     {
-        return $this->hasMany(ActivityImages::class, 'activity_id', 'id');
+        return $this->hasMany(ActivityImage::class, 'activity_id', 'id');
+    }
+
+    public function excerp()
+    {
+        return Str::limit($this->description, 20, '...');
     }
 }

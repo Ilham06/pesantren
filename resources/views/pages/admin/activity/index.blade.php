@@ -80,8 +80,8 @@
                         name: 'name'
                     },
                     {
-                        data: 'description',
-                        name: 'description'
+                        data: 'excerp',
+                        name: 'excerp'
                     },
                     {
                         data: 'action',

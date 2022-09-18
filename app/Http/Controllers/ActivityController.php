@@ -28,10 +28,16 @@ class ActivityController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = Activity::all();
+            $query = Activity::with('images')->get();
             return DataTables::of($query)
             ->addColumn('action', 'pages.admin.'.$this->module.'._action')
-            ->rawColumns(['action'])
+            ->addColumn('excerp', function ($data) {
+                return $data->excerp();
+            })
+            ->addColumn('thumbnail', function ($data) {
+                return '<img style="width: 20%;" src="storage/image/activity/'. $data->images->first()->url .'" alt="">';
+            })
+            ->rawColumns(['action', 'thumbnail', 'excerp'])
             ->addIndexColumn()
             ->make(true);
         }
@@ -90,7 +96,9 @@ class ActivityController extends Controller
      */
     public function show(Activity $activity)
     {
-        //
+        return view('pages.admin.'.$this->module.'.show', [
+            'model' => $activity
+        ]);
     }
 
     /**

@@ -7,12 +7,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Detail Pesantren</h1>
+                        <h1 class="m-0">Detail Kegiatan</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Detail Pesantren</li>
+                            <li class="breadcrumb-item"><a href="#">Activity</a></li>
+                            <li class="breadcrumb-item active">Activity</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -23,33 +24,33 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="card">
-                    <div class="card-header">
-                        <a href="{{ route('detail.create') }}" class="btn btn-success">Ubah Data</a>
-                    </div>
+                <div class="card mt-2">
                     <div class="card-body p-0">
                         <table class="table">
                             <tr>
-                                <th>Nama Pesantren</th>
-                                <td>{{ $data->name }}</td>
+                                <th>Nama Kegiatan</th>
+                                <td>{{ $model->name }}</td>
                             </tr>
                             <tr>
-                                <th>Alamat Pesantren</th>
-                                <td>{{ $data->address }}</td>
+                                <th>Deskripsi</th>
+                                <td>{!! $model->description !!}</td>
                             </tr>
                             <tr>
-                                <th>No. Hp Pesantren</th>
-                                <td>{{ $data->phone }}</td>
-                            </tr>
-                            <tr>
-                                <th>Email Pesantren</th>
-                                <td>{{ $data->email }}</td>
-                            </tr>
-                            <tr>
-                                <th>Tentang Pesantren</th>
-                                <td>{{ $data->about }}</td>
+                                <th>Foto Kegiatan</th>
+                                <td></td>
                             </tr>
                         </table>
+                    </div>
+                    <div class="images p-5">
+                        <div class="row">
+                            @forelse ($model->images as $image)
+                                <div class="col-lg-3">
+                                    <img style="width: 100%" src="{{ asset('storage/image/activity/'.$image->url) }}" alt="">
+                                </div>
+                            @empty
+                                <p>Tidak ada foto</p>
+                            @endforelse
+                        </div>
                     </div>
                 </div>
             </div>
