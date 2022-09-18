@@ -73,7 +73,7 @@
                 </li>
                 <li class="nav-header">Setting</li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="{{ route('detail.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-info"></i>
                         <p>
                             Data Pesantren

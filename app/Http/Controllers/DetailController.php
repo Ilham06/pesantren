@@ -15,7 +15,9 @@ class DetailController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.admin.details.index', [
+            'data' => $data = Detail::first()
+        ]);
     }
 
     /**
@@ -25,7 +27,9 @@ class DetailController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.details.update', [
+            'data' => $data = Detail::first()
+        ]);
     }
 
     /**
@@ -36,7 +40,10 @@ class DetailController extends Controller
      */
     public function store(StoreDetailRequest $request)
     {
-        //
+        $input = $request->all();
+        $post = Detail::create($input);
+
+        return redirect()->route('detail.index');
     }
 
     /**
