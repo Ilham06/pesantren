@@ -18,6 +18,8 @@ use App\Http\Controllers\LandingPageController;
 */
 
 Route::get('/', [LandingPageController::class, 'index'])->name('home');
+Route::get('/form', [LandingPageController::class, 'form'])->name('form');
+Route::post('/registration', [LandingPageController::class, 'registration'])->name('registration');
 
 route::middleware(['auth'])->group(function () {
     Route::resource('detail', DetailController::class);
