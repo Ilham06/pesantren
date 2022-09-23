@@ -1,0 +1,304 @@
+/********** Template CSS **********/
+:root {
+    --secondary: #00FFAB;
+    --primary: #14C38E;
+    --light: #F1F8FF;
+    --dark: #0F172B;
+    --soft: #8F8A8A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins' !important;
+    background-color: #f8f9fa !important;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary)
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--primary)
+}
+
+.text-primary {
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+.font-secondary {
+    font-family: 'Pacifico', cursive;
+}
+
+.bg-primary {
+    background: var(--primary) !important;
+}
+
+.btn-primary {
+    background: var(--primary) !important;
+    outline: none !important;
+    border: none !important;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+    border-radius: 50%;
+}
+
+.section-title h1 {
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--dark);
+}
+
+.section-title h5 {
+    font-family: 'Pacifico', cursive;
+}
+
+/**
+ * spinner
+ */
+
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/**
+ * Navbar
+ */
+
+.navbar-dark .navbar-nav .nav-link {
+    position: relative;
+    margin-left: 15px;
+    padding: 35px 0;
+    font-size: 14px;
+    color: var(--light) !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: none;
+    transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 20px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+}
+
+.navbar-dark .navbar-brand img {
+    max-height: 60px;
+    transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-brand img {
+    max-height: 45px;
+}
+
+
+/**
+ * Header
+ */
+
+.hero-header {
+    background: linear-gradient(rgba(15, 23, 43, .8), rgba(15, 23, 43, .8)), url(../images/banner.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-header h1 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, .5);
+}
+
+/**
+ * About
+ */
+
+.about {
+    padding: 100px 0;
+}
+
+.about p {
+    color: var(--soft);
+    text-align: justify !important;
+}
+
+.about .social-media a {
+    font-size: 30px !important;
+    margin: auto 7px;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+/**
+ * activity
+ */
+
+ .activity {
+    background: #F9F0F9;
+    padding: 100px 0;
+ }
+
+ .acivity-item {
+    height: 300px;
+    text-align: center;
+    padding: 20px 0;
+    color: var(--light);
+    cursor: pointer;
+ }
+
+ .acivity-item h3 {
+    font-weight: 600;
+    margin-top: 200px;
+ }
+
+
+/**
+ * blog
+ */
+
+.blog {
+    padding: 100px 0;
+    background: #FFF;
+}
+
+.blog-item h2 {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.blog-item img {
+    width: 100%;
+}
+
+.blog-item .category {
+    color: #8F8A8A;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.blog-item .price {
+    color: #161212;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/**
+ * CTA
+ */
+
+.cta {
+    padding: 75px 0;
+    background: #F9F0F9;
+}
+
+.cta h4 {
+    font-weight: 600;
+    font-size: 34px;
+}
+
+/**
+ * Footer
+ */
+
+.footer .social-media a {
+    font-size: 25px !important;
+    margin: auto 5px;
+    color: var(--light);
+    text-decoration: none;
+}
+
+/*---------------------
+  RESPONSIVE
+-----------------------*/
+
+@media (max-width: 991.98px) {
+    .sticky-top.navbar-dark {
+        position: relative;
+    }
+
+    .navbar-dark .navbar-collapse {
+        margin-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    .navbar-dark .navbar-nav .nav-link,
+    .sticky-top.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        margin-left: 0;
+    }
+
+    .navbar-dark .navbar-brand img {
+        max-height: 45px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-dark {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background: transparent !important;
+    }
+    
+    .sticky-top.navbar-dark {
+        position: fixed;
+        background: var(--dark) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-search form {
+        margin-bottom: 30px;
+    }
+
+    .menu-search form .nice-select {
+        width: 36%;
+        padding-left: 10px;
+    }
+
+    .menu-search form input {
+        width: 64%;
+    }
+
+    .menu-sort {
+        text-align: center;
+    }
+}

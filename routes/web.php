@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ArticleController;
-
+use App\Http\Controllers\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +17,13 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.master');
+Route::get('/', [LandingPageController::class, 'index'])->name('home');
+
+route::middleware(['auth'])->group(function () {
+    Route::resource('detail', DetailController::class);
+    Route::resource('activity', ActivityController::class);
+    Route::resource('article', ArticleController::class);
 });
 
-Route::resource('detail', DetailController::class);
-Route::resource('activity', ActivityController::class);
-Route::resource('article', ArticleController::class);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

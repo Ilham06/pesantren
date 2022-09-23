@@ -14,6 +14,6 @@ class Article extends Model
 
     public function excerp()
     {
-        return Str::limit($this->content, 20, '...');
+        return Str::limit($this->content, 100, '...');
     }
 }

@@ -41,7 +41,7 @@ class DetailController extends Controller
     public function store(StoreDetailRequest $request)
     {
         $input = $request->all();
-        $post = Detail::create($input);
+        $post = Detail::updateOrCreate(['id' => 1], $input);
 
         return redirect()->route('detail.index');
     }
