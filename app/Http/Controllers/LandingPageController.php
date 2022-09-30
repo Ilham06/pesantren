@@ -24,7 +24,9 @@ class LandingPageController extends Controller
 
     public function form()
     {
-        return view('pages.landing-page.form');
+        return view('pages.landing-page.form', [
+            'data' => Detail::first()
+        ]);
     }
 
     public function registration(RegistrationRequest $request)
@@ -37,5 +39,19 @@ class LandingPageController extends Controller
         DB::commit();
 
         return redirect()->route('form')->with('message', 'Registrasi berhasil, silahkan tunggu respon dari kami');
+    }
+
+    public function showActivity($slug)
+    {
+        return view('pages.landing-page.activity-detail', [
+            'data' => Activity::whereSlug($slug)->first()
+        ]);
+    }
+
+    public function showArticle($slug)
+    {
+        return view('pages.landing-page.article-detail', [
+            'data' => Article::whereSlug($slug)->first()
+        ]);
     }
 }

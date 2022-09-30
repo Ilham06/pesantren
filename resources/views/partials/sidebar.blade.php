@@ -11,7 +11,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Admin</a>
             </div>
         </div>
 
@@ -31,26 +31,10 @@
                 </li>
                 <li class="nav-header">Master Data</li>
                 <li class="nav-item">
-                    <a href="/" class="nav-link">
-                        <i class="nav-icon fas fa-school"></i>
-                        <p>
-                            Kurikulum
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('activity.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
                             Kegiatan
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>
-                            Foto Kegiatan
                         </p>
                     </a>
                 </li>
@@ -64,7 +48,7 @@
                 </li>
                 <li class="nav-header">Pendaftaran</li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="{{ route('admin.registration') }}" class="nav-link">
                         <i class="nav-icon fas fa-user-plus"></i>
                         <p>
                             Data Pendaftar

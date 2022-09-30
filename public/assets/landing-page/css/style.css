@@ -243,6 +243,15 @@ a:hover {
     text-decoration: none;
 }
 
+.form-page li  {
+    list-style: none;
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.article-page .header h2 {
+    font-weight: 600;
+}
 /*---------------------
   RESPONSIVE
 -----------------------*/
